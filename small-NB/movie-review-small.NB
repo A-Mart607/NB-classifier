@@ -1,0 +1,41 @@
+{
+  "vocab_size": 7,
+  "class_word_counts": {
+    "pos": 13,
+    "neg": 7
+  },
+  "class_doc_counts": {
+    "pos": 3,
+    "neg": 2
+  },
+  "word_counts": {
+    "fun": {
+      "pos": 3,
+      "neg": 1
+    },
+    "couple": {
+      "pos": 2,
+      "neg": 0
+    },
+    "love": {
+      "pos": 3,
+      "neg": 0
+    },
+    "fast": {
+      "pos": 2,
+      "neg": 1
+    },
+    "furious": {
+      "pos": 0,
+      "neg": 2
+    },
+    "shoot": {
+      "pos": 1,
+      "neg": 3
+    },
+    "fly": {
+      "pos": 2,
+      "neg": 0
+    }
+  }
+}
