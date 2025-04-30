@@ -67,7 +67,7 @@ def break_text(text, vocab):
 
                 if new_token in negate_words:
                     negate = True
-                    output[new_token] = output.get(new_token, 0) + 1
+                    output[new_token] = 1
                     continue
 
                 if new_token in vocab:
