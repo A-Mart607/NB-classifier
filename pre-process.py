@@ -1,6 +1,6 @@
 import sys
 import os
-from string import punctuation
+
 
 """
 Pre-processing: prior to building feature vectors,
@@ -49,7 +49,7 @@ def break_text(text, vocab):
                 # token = "NOT_" + token
                 negate = False
 
-            output[token] = output.get(token, 0) + 1
+            output[token] = 1
 
         else:
             # Separate basic punctuation from the token
@@ -75,7 +75,7 @@ def break_text(text, vocab):
                         # new_token = "NOT_" + new_token
                         negate = False
 
-                    output[new_token] = output.get(new_token, 0) + 1
+                    output[new_token] = 1
     return output
 
 
