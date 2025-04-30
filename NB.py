@@ -139,7 +139,7 @@ with open(test_file, 'r', encoding='utf-8') as file:
             log_neg = math.log(neg_num/neg_denom)
 
             neg_val += count * log_neg
-
+            #
         predicted_class = 'pos' if pos_val > neg_val else 'neg'
 
         output.write(f"{predicted_class}\n")
