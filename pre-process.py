@@ -35,18 +35,18 @@ def break_text(text, vocab):
             if token in punctuation:
                 negate = False
 
-            # if token in stopwords:
-                # negate = False
-                # continue
+            if token in stopwords:
+                negate = False
+                continue
 
             if token in negate_words:
                 negate = True
-                # output[token] = output.get(token, 0) + 1
-                # continue
+                output[token] = 1
+                continue
 
             if negate:
 
-                # token = "NOT_" + token
+                token = "NOT_" + token
                 negate = False
 
             output[token] = 1
@@ -61,18 +61,18 @@ def break_text(text, vocab):
                     negate = False
 
 
-                # if new_token in stopwords:
-                    # negate = False
-                    # continue
+                if new_token in stopwords:
+                     negate = False
+                     continue
 
                 if new_token in negate_words:
                     negate = True
-                    # output[new_token] = output.get(new_token, 0) + 1
-                    # continue
+                    output[new_token] = output.get(new_token, 0) + 1
+                    continue
 
                 if new_token in vocab:
                     if negate:
-                        # new_token = "NOT_" + new_token
+                        new_token = "NOT_" + new_token
                         negate = False
 
                     output[new_token] = 1
