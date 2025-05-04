@@ -131,15 +131,15 @@ with open(test_file, 'r', encoding='utf-8') as file:
             pos_denom = model['class_word_counts']['pos'] + len(seen_vocab)
             log_pos = math.log(pos_num/pos_denom)
 
-            pos_val += count * log_pos
+            pos_val += log_pos
 
 
             neg_num = model['word_counts'][word]['neg'] + 1
             neg_denom = model['class_word_counts']['neg'] + len(seen_vocab)
             log_neg = math.log(neg_num/neg_denom)
 
-            neg_val += count * log_neg
-            #
+            neg_val += log_neg
+
         predicted_class = 'pos' if pos_val > neg_val else 'neg'
 
         output.write(f"{predicted_class}\n")
