@@ -1,6 +1,5 @@
 import sys
 import os
-from tqdm import tqdm
 
 """
 Pre-processing: prior to building feature vectors,
@@ -89,9 +88,9 @@ def make_vector(label, words):
 input_directory = sys.argv[1].rstrip("/\\")
 
 # every file directory should be train/neg + train/pos
-neg_dir = os.listdir(f"{input_directory}/neg")
+neg_dir = sorted(os.listdir(f"{input_directory}/neg"))
 
-pos_dir = os.listdir(f"{input_directory}/pos")
+pos_dir = sorted(os.listdir(f"{input_directory}/pos"))
 
 
 out_name = os.path.basename(input_directory) + ".vectors"
@@ -104,7 +103,7 @@ with open('imdb.vocab', 'r', encoding="utf-8") as f:
     vocab = set(line.strip().lower() for line in f)
 
 
-for file in tqdm(neg_dir, desc="Processing Negative Files"):
+for file in neg_dir:
 
     path = f"{input_directory}/neg/{file}"
     with open(path, 'r', encoding='utf-8') as f:
@@ -115,7 +114,7 @@ for file in tqdm(neg_dir, desc="Processing Negative Files"):
         output.write(vector + '\n')
 
 
-for file in tqdm(pos_dir, desc="Processing Positive Files"):
+for file in pos_dir:
     path = f"{input_directory}/pos/{file}"
     with open(path, 'r', encoding='utf-8') as f:
         text = f.read()
